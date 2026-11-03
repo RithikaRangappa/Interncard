@@ -1,19 +1,29 @@
+import InternCard from "./InternCard";
+import "./App.css";
+
+const interns = [
+  { id: 101, name: "Anu", role: "React Intern", team: "Platform" },
+  { id: 102, name: "Rithika", role: "UI Intern", team: "Learning" },
+  { id: 103, name: "Maya", role: "Frontend Intern", team: "Web" },
+  { id: 104, name: "Ravi", role: "Product Intern", team: "Delivery"}
+];
+
 function App() {
-  const internName = "Rithika";
-
   return (
-    <main>
-      <h1>Welcome, {internName}!</h1>
-      <p>Let’s learn React together.</p>
+    <main className="page">
+      <h1>Meet the Interns</h1>
+      <p className="intro">Our new frontend team</p>
 
-      <h2>Today’s Goal</h2>
-      <p>Understand the basics of React.</p>
-
-      <ul>
-        <li>Learn JSX</li>
-        <li>Understand components</li>
-        <li>Build React UIs</li>
-      </ul>
+      <section className="card-grid">
+        {interns.map((intern) => (
+          <InternCard
+            key={intern.id}
+            name={intern.name}
+            role={intern.role}
+            team={intern.team}
+          />
+        ))}
+      </section>
     </main>
   );
 }
